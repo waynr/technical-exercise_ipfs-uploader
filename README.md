@@ -1,10 +1,39 @@
 # ChainSafe Systems Technical Assessment
 
+# Usage
+
+## Development Environment
+
+**Please note that this has only been tested on Arch Linux and any compatibility
+with mac or windows is incidental.**
+
+The development environment is required to do anything with either the CLI or
+the e2e tests. To use it, you will have to docker and [install docker
+compose](https://docs.docker.com/compose/install/).
+
+
+```
+docker compose up
+```
+
+This should start a kubo (IPFS Node) instance and an Anvil (Ethereum Node meant
+for local dev) in containers using your local docker daemon. The following
+ports will be exposed on localhost:
+
+* 4001/udp & 4001/tcp
+  * "swarm" listener
+* 5001
+  * web ui & api server
+* 8080
+  * read-only gateway?
+
 # TODO:
 
 * [x] review documentation & plan implementation
   * learn basics of IPFS
   * learn basics of smart contracts and ethereum
+  * outline project
+  * create cargo project
 * [ ] set up development environment
   * install docker compose
   * create compose.yml that runs;
