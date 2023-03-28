@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   kubo:
-    image: "ipfs/kubo"
+    image: "ipfs/kubo:v0.19.0"
     ports:
       - "4001:4001/udp"
       - "4001:4001/tcp"
