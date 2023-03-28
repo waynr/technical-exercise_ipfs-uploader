@@ -2,7 +2,6 @@ use std::sync::Arc;
 
 use ethers::{
     contract::abigen,
-    core::types::Address,
     middleware::SignerMiddleware,
     providers::{Http, Provider},
     signers::LocalWallet,
