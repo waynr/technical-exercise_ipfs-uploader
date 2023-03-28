@@ -34,7 +34,7 @@ ports will be exposed on localhost:
   * learn basics of smart contracts and ethereum
   * outline project
   * create cargo project
-* [ ] set up development environment
+* [x] set up development environment
   * install docker compose
   * create compose.yml that runs;
     * an ipfs node 
