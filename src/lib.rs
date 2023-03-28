@@ -5,6 +5,9 @@ use clap::Parser;
 mod contract_manager;
 use contract_manager::ContractManager;
 
+mod ipfs_manager;
+use ipfs_manager::IPFSManager;
+
 pub(crate) mod cli;
 use cli::{Cli, SubCommands};
 
@@ -23,8 +26,11 @@ pub async fn run() -> Result<()> {
         },
         SubCommands::Upload{ file } => {
             pathmustexist(file)?;
-            println!("{}", file.display());
-            println!("{}", key);
+            let ipfs_mgr = IPFSManager::new("http://127.0.0.1:5001")?;
+            let contract_mgr = ContractManager::new(key);
+            let cid = ipfs_mgr.upload(file).await?;
+            println!("{0}", cid);
+            contract_mgr.store(cid).await?;
             Ok(())
         },
     }

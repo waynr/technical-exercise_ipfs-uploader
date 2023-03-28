@@ -27,4 +27,12 @@ pub enum Error {
     /// Smart contract deploy failed.
     #[error("smart contract deploy failed: {0}")]
     DeployFailed(String),
+
+    /// IPFS API error.
+    #[error("ipfs api error: {0}")]
+    IPFSAPIError(#[from] ipfs_api::Error),
+
+    /// Invalid URI error.
+    #[error("invalid uri error: {0}")]
+    InvalidURIError(#[from] http::uri::InvalidUri),
 }
