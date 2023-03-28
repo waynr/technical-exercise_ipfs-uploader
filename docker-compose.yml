@@ -7,8 +7,7 @@ services:
       - "4001:4001/tcp"
       - "127.0.0.1:5001:5001"
       - "127.0.0.1:8080:8080"
-  anvil:
+  ganache:
     ports:
       - "8545:8545"
-    image: "ghcr.io/foundry-rs/foundry:latest"
-    command: "anvil"
+    image: "trufflesuite/ganache-core"

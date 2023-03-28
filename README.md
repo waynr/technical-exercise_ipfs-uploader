@@ -45,7 +45,8 @@ just build-contract
 
 This takes the smart contract, `./contract.sol`, and produces both an ABI and a
 Binary in the `./outputs/` directory. These will be uploaded to the local Anvil
-node by the cli.
+node by the cli.anyhow = "1.0"
+
 
 # TODO:
 

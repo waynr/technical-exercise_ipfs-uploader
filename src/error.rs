@@ -15,4 +15,16 @@ pub enum Error {
     /// When a path doesn't exist, that's-a-error!
     #[error("path doesn't exist: {0}")]
     PathDoesNotExist(std::path::PathBuf),
+
+    /// When wallets error.
+    #[error("wallet error: {0}")]
+    WalletError(#[from] ethers::signers::WalletError),
+
+    /// When parses error.
+    #[error("parse error: {0}")]
+    ParseError(#[from] url::ParseError),
+
+    /// Smart contract deploy failed.
+    #[error("smart contract deploy failed: {0}")]
+    DeployFailed(String),
 }
