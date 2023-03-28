@@ -5,7 +5,7 @@ use ethers::{
     abi::Address,
     middleware::SignerMiddleware,
     providers::{Http, Provider},
-    signers::LocalWallet,
+    signers::{LocalWallet, Signer},
 };
 
 pub use crate::{Error, Result};
@@ -25,7 +25,7 @@ impl ContractManager {
     pub async fn deploy(&self) -> Result<()> {
         let provider = Provider::<Http>::try_from("http://127.0.0.1:8545")?;
 
-        let wallet = self.key.parse::<LocalWallet>()?;
+        let wallet = self.key.parse::<LocalWallet>()?.with_chain_id(1337 as u64);
 
         let client = Arc::new(SignerMiddleware::new(provider, wallet));
 
@@ -41,7 +41,7 @@ impl ContractManager {
     pub async fn store(&self, cid: String) -> Result<()> {
         let provider = Provider::<Http>::try_from("http://127.0.0.1:8545")?;
 
-        let wallet = self.key.parse::<LocalWallet>()?;
+        let wallet = self.key.parse::<LocalWallet>()?.with_chain_id(1337 as u64);
 
         let client = Arc::new(SignerMiddleware::new(provider, wallet));
 
