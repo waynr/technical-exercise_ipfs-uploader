@@ -2,6 +2,14 @@
 
 # Usage
 
+## Requirements
+
+The following software is assumed to be installed:
+
+* [Docker](https://docs.docker.com/get-docker/)
+* [docker compose](https://docs.docker.com/compose/install/).
+* [just](https://just.systems/man/en/chapter_2.html)
+
 ## Development Environment
 
 **Please note that this has only been tested on Arch Linux and any compatibility
@@ -27,6 +35,18 @@ ports will be exposed on localhost:
 * 8080
   * read-only gateway?
 
+## Building
+
+### Smart Contract
+
+```
+just build-contract
+```
+
+This takes the smart contract, `./contract.sol`, and produces both an ABI and a
+Binary in the `./outputs/` directory. These will be uploaded to the local Anvil
+node by the cli.
+
 # TODO:
 
 * [x] review documentation & plan implementation
@@ -44,7 +64,7 @@ ports will be exposed on localhost:
     * ~~ganache: https://github.com/trufflesuite/ganache~~
     * Anvil 
       * ghcr.io/foundry-rs/foundry:latest
-* [ ] write simple smart contract with single function that sets the value on a
+* [x] write simple smart contract with single function that sets the value on a
     variable whose type is capable of representing CIDs
 * [ ] write CLI to:
   * [ ] upload file to ipfs network 
