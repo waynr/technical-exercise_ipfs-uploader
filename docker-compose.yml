@@ -10,4 +10,4 @@ services:
   ganache:
     ports:
       - "8545:8545"
-    image: "trufflesuite/ganache-core"
+    image: "trufflesuite/ganache:v7.7.7"
