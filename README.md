@@ -9,6 +9,8 @@ The following software is assumed to be installed:
 * [Docker](https://docs.docker.com/get-docker/)
 * [docker compose](https://docs.docker.com/compose/install/).
 * [just](https://just.systems/man/en/chapter_2.html)
+* [rust toolchain](https://rustup.rs/)
+* [jq](https://stedolan.github.io/jq/)
 
 ## Development Environment
 
