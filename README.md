@@ -15,11 +15,9 @@ The following software is assumed to be installed:
 **Please note that this has only been tested on Arch Linux**
 
 The development environment is required to do anything with either the CLI or
-the e2e tests. To use it, you will have to docker and [install docker
-compose](https://docs.docker.com/compose/install/).
+the e2e tests. It's recommended to run docker-compose in the foreground in a
+terminal so you can observe combined stdout of containers while tinkering.
 
-In a terminal separate from your editor terminal (assuming you're lame like me
-and use vim or emacs):
 
 ```
 docker compose up
