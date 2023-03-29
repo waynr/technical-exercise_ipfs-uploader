@@ -12,18 +12,18 @@ pub use crate::{Error, Result};
 
 pub(crate) struct ContractManager {
     key: String,
-    //wallet: LocalWallet,
+    url: String,
 }
 
 abigen!(IPFSCIDStorage, "output/IPFSCIDStorage.json");
 
 impl ContractManager {
-    pub fn new(key: String) -> Self {
-        Self { key }
+    pub fn new(url: &str, key: String) -> Self {
+        Self { key, url: url.to_string() }
     }
 
     pub async fn deploy(&self) -> Result<()> {
-        let provider = Provider::<Http>::try_from("http://127.0.0.1:8545")?;
+        let provider = Provider::<Http>::try_from(&self.url)?;
 
         let wallet = self.key.parse::<LocalWallet>()?.with_chain_id(1337 as u64);
 
@@ -39,7 +39,7 @@ impl ContractManager {
     }
 
     pub async fn store(&self, cid: String) -> Result<()> {
-        let provider = Provider::<Http>::try_from("http://127.0.0.1:8545")?;
+        let provider = Provider::<Http>::try_from(&self.url)?;
 
         let wallet = self.key.parse::<LocalWallet>()?.with_chain_id(1337 as u64);
 

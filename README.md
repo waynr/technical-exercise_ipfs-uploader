@@ -12,8 +12,7 @@ The following software is assumed to be installed:
 
 ## Development Environment
 
-**Please note that this has only been tested on Arch Linux and any compatibility
-with mac or windows is incidental.**
+**Please note that this has only been tested on Arch Linux**
 
 The development environment is required to do anything with either the CLI or
 the e2e tests. To use it, you will have to docker and [install docker
@@ -48,8 +47,7 @@ just build-contract
 This takes the smart contract, `./contract.sol`, and produces both a combined
 ABI/binary in the `./outputs/` directory that is passed to the
 `ethers::contract::abigen` macro for smart contract deployment and interaction
-purposes. These will be uploaded to the local Anvil node by the cli.anyhow =
-"1.0"
+purposes. These will be uploaded to the local Anvil node by the cli.
 
 
 ### CLI
